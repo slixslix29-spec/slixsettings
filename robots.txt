@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://slixslix29-spec.github.io/slixsettings.com/sitemap.xml
