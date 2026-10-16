@@ -1580,7 +1580,7 @@
     wrap(h);
   });
 
-  // Balken für "Zero Delay\" (rein dekorativ: Latenz sinkt)
+  // Balken für "Zero Delay" (rein dekorativ: Latenz sinkt)
   $('#latency').innerHTML = [72, 64, 80, 58, 66, 44, 36, 28, 22, 18, 16, 15, 14, 14].map((h, k) => `<i class="${k > 7 ? 'hot' : ''}" style="--h:${h}%;--k:${k}"></i>`).join('');
 
   /* =====================================================================
