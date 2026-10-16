@@ -1435,6 +1435,7 @@
     setMenu(false);
     window.scrollTo(0, 0);
     observeReveals(page);
+    setTimeout(revealCheck, 60);
     onScroll();
     if (typeof litStatement === 'function') requestAnimationFrame(litStatement);
     if (slug === 'bestellung') loadOrder(parts[1], parts[2]);
@@ -1471,6 +1472,17 @@
   const io = new IntersectionObserver((entries) => entries.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
   }), { rootMargin: '0px 0px -8% 0px' });
+  // Zweite Absicherung ohne IntersectionObserver: beim Scrollen selbst prüfen, was im Bild ist
+  function revealCheck() {
+    const vh = innerHeight;
+    $$('.page.is-active [data-reveal]:not(.is-in), .footer [data-reveal]:not(.is-in)').forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < vh * .95 && r.bottom > 0) el.classList.add('is-in');
+    });
+  }
+  let rcT = 0;
+  addEventListener('scroll', () => { const n = Date.now(); if (n - rcT > 120) { rcT = n; revealCheck(); } }, { passive: true });
+  addEventListener('resize', revealCheck);
   function observeReveals(scope) {
     $$('[data-reveal]:not(.is-in)', scope).forEach((el) => {
       const sib = $$(':scope > [data-reveal]', el.parentElement);
@@ -2122,7 +2134,7 @@
   else if (!location.hash) history.replaceState(null, '', '#/start');
   if (store.get('slix-order')) $('#navOrder').classList.add('show');
   loadMe();
-  setTimeout(() => root.classList.add('settled'), 3000);
+  setTimeout(() => { root.classList.add('settled'); revealCheck(); }, 3000);
   refreshApiUrl().then(() => { refreshLive(); });
   route();
   litStatement();
