@@ -636,6 +636,23 @@
   .info__for span { font: 500 12px var(--mono); padding: 5px 10px; border-radius: 100px; border: 1px solid var(--line-2); color: var(--text); }
   @media (max-width: 860px) { .info { grid-template-columns: 1fr; } .info__nav { position: static; grid-auto-flow: column; overflow-x: auto; scrollbar-width: none; } .info__nav button { white-space: nowrap; } .info__grid { grid-template-columns: 1fr; } }
 
+  /* Wandernde Lichtflächen im Startbereich (nur transform/opacity) */
+  .orbs { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+  .orbs i { position: absolute; width: 46vw; height: 46vw; max-width: 720px; max-height: 720px; border-radius: 50%; filter: blur(70px); opacity: .55;
+    background: radial-gradient(circle, var(--orb, rgba(255,255,255,.10)), transparent 65%); will-change: transform; }
+  .orbs i:nth-child(1) { left: -8%; top: -10%; animation: drift1 calc(22s * var(--speed)) ease-in-out infinite; }
+  .orbs i:nth-child(2) { right: -10%; top: 5%; --orb: rgba(255,255,255,.07); animation: drift2 calc(26s * var(--speed)) ease-in-out infinite; }
+  .orbs i:nth-child(3) { left: 30%; top: 35%; --orb: rgba(255,255,255,.06); animation: drift3 calc(30s * var(--speed)) ease-in-out infinite; }
+  [data-theme="light"] .orbs i { --orb: rgba(0,0,0,.05); }
+  @keyframes drift1 { 50% { transform: translate(18vw, 10vh) scale(1.15); } }
+  @keyframes drift2 { 50% { transform: translate(-16vw, 14vh) scale(.9); } }
+  @keyframes drift3 { 50% { transform: translate(10vw, -12vh) scale(1.2); } }
+  [data-motion="off"] .orbs i { animation: none; }
+
+  /* Seitenwechsel: alte Seite blendet kurz aus */
+  .page.is-leaving { display: block; animation: pageOut calc(.18s * var(--speed)) ease forwards; }
+  @keyframes pageOut { to { opacity: 0; transform: translateY(-8px); } }
+
   /* Überschriften: Wörter steigen nacheinander auf */
   .hw { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; margin-bottom: -.08em; }
   .hw > span { display: inline-block; transform: translateY(105%); transition: transform calc(.9s * var(--speed)) var(--ease); transition-delay: calc(var(--w) * 60ms + 120ms); }
@@ -765,6 +782,7 @@
         <div class="bg-dots" aria-hidden="true"></div>
         <div class="bg-glow" aria-hidden="true"></div>
         <div class="hero__spot" aria-hidden="true"></div>
+        <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
         <div class="wrap">
           <a href="#/vouches" class="pill fade"><b><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span id="pillAvg">5,0</span></b><span id="pillText">Echte Vouches aus unserem Discord</span> <span aria-hidden="true">→</span></a>
           <h1 aria-label="Dein PC kann mehr. Lass ihn.">
@@ -816,7 +834,7 @@
             <p>Jeder Bereich einzeln schaltbar – oder alles auf einmal mit „Apply All Tweaks“.</p>
           </div>
           <div class="bento">
-            <article class="card tile tile--a" data-reveal>
+            <article class="card tile tile--a tilt" data-reveal>
               <div class="viz" aria-hidden="true">
                 <div class="latency" id="latency"></div>
                 <div class="ms"><b>Zero</b><small>DELAY</small></div>
@@ -824,36 +842,36 @@
               <h3>Zero Delay</h3>
               <p>Weniger Input-Lag für Maus, Tastatur und Controller – Mausbeschleunigung, USB-Polling und Tastaturpuffer optimiert.</p>
             </article>
-            <article class="card tile tile--b" data-reveal>
+            <article class="card tile tile--b tilt" data-reveal>
               <div class="viz" aria-hidden="true">
                 <svg class="ring" viewBox="0 0 100 100"><circle class="bgc" cx="50" cy="50" r="40"/><circle class="fg" cx="50" cy="50" r="40"/></svg>
               </div>
               <h3>FPS Boost</h3>
               <p>Mehr und vor allem gleichmäßigere Frames.</p>
             </article>
-            <article class="card tile tile--c" data-reveal>
+            <article class="card tile tile--c tilt" data-reveal>
               <div class="viz" aria-hidden="true">
                 <svg class="spark" viewBox="0 0 300 92" preserveAspectRatio="none"><path class="area" d="M0 40 L30 62 L60 28 L90 70 L120 34 L150 58 L180 60 L210 61 L240 60 L270 61 L300 60 L300 92 L0 92Z"/><path d="M0 40 L30 62 L60 28 L90 70 L120 34 L150 58 L180 60 L210 61 L240 60 L270 61 L300 60"/></svg>
               </div>
               <h3>Ping Optimizer</h3>
               <p>Stabilere Verbindung, weniger Spitzen.</p>
             </article>
-            <article class="card tile tile--c" data-reveal>
+            <article class="card tile tile--c tilt" data-reveal>
               <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
               <h3>HitReg Tweak</h3>
               <p>Sauberere Trefferregistrierung im Spiel.</p>
             </article>
-            <article class="card tile tile--c" data-reveal>
+            <article class="card tile tile--c tilt" data-reveal>
               <div class="chips-row" aria-hidden="true"><span>Windows</span><span>FiveM</span><span>Games</span></div>
               <h3>Windows &amp; Game Tweaks</h3>
               <p>System- und spielspezifische Optimierungen.</p>
             </article>
-            <article class="card tile tile--wide" data-reveal>
+            <article class="card tile tile--wide tilt" data-reveal>
               <div class="ai-chat" aria-hidden="true"><span>Welche Tweaks passen zu meinem PC?</span><span>Für dein Setup empfehle ich Zero Delay + FPS Boost.</span></div>
               <h3>AI Assistant &amp; Guide</h3>
               <p>Fragen direkt im Tool stellen und Schritt für Schritt durch alle Tweaks geführt werden.</p>
             </article>
-            <article class="card tile tile--c" data-reveal>
+            <article class="card tile tile--c tilt" data-reveal>
               <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg></div>
               <h3>System Restore</h3>
               <p>Ein Klick zurück zum Ausgangszustand.</p>
@@ -1423,7 +1441,14 @@
     if (slug === 'konto') renderAccount();
     document.title = (slug === 'start' ? '' : page.getAttribute('aria-label') + ' · ') + 'slixsettings — Tweaks für Windows & FiveM';
   }
-  addEventListener('hashchange', route);
+  let leaveTimer;
+  addEventListener('hashchange', () => {
+    const cur = $('.page.is-active');
+    if (!cur || !motionOn()) return route();
+    clearTimeout(leaveTimer);
+    cur.classList.add('is-leaving');
+    leaveTimer = setTimeout(() => { cur.classList.remove('is-leaving'); route(); }, 170);
+  });
   $$('a[href="#main"]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); $('#main').focus(); }));
 
   /* =====================================================================
