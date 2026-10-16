@@ -181,6 +181,8 @@
 
   .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 28px; font-size: 13.5px; color: var(--mute); }
   .trust span { display: inline-flex; align-items: center; gap: 8px; }
+  .pay-icons { gap: 4px !important; }
+  .pay-icons svg { width: 18px !important; height: 18px !important; color: var(--mute); stroke: none !important; fill: currentColor; }
   .trust svg { width: 15px; height: 15px; stroke: var(--ink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
   /* Produkt-Screenshot, richtet sich beim Scrollen auf */
@@ -741,9 +743,6 @@
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       </button>
-      <button class="icon-btn" id="motionBtn" aria-label="Animationen ein/aus" aria-pressed="true" title="Animationen">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h3l3-7 4 14 3-7h3"/></svg>
-      </button>
       <a href="#/konto" class="acct-btn guest" id="acctBtn"><span class="av0"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span id="acctName">Anmelden</span></a>
       <a href="#" class="btn btn--ink btn--sm js-invite" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-discord"/></svg>Discord</a>
       <button class="icon-btn burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav">
@@ -766,21 +765,15 @@
             <span class="w" style="--i:0" aria-hidden="true">Dein</span> <span class="w" style="--i:1" aria-hidden="true">PC</span> <span class="w" style="--i:2" aria-hidden="true">kann</span> <span class="w" style="--i:3" aria-hidden="true">mehr.</span>
             <span class="w serif" style="--i:4" aria-hidden="true"><span class="shine">Lass</span></span> <span class="w serif" style="--i:5" aria-hidden="true"><span class="shine">ihn.</span></span>
           </h1>
-          <p class="hero__lead fade" style="--i:3">Weniger Input-Lag, mehr FPS, stabiler Ping. Der Fully Tweak V2 optimiert Windows, Eingabe und Netzwerk mit einem Klick – und lässt sich jederzeit zurücksetzen.</p>
+          <p class="hero__lead fade" style="--i:3">Weniger Input-Lag. Mehr FPS. Stabiler Ping.<br>Mit einem Klick – und jederzeit zurücksetzbar.</p>
           <div class="hero__cta fade" style="--i:4">
             <button class="btn btn--ink magnet" data-buy="fully">Fully Tweak V2 kaufen · 20€ <span class="arr" aria-hidden="true">→</span></button>
             <a href="#/vouches" class="btn btn--line">Vouches lesen</a>
           </div>
           <div class="trust fade" style="--i:5">
             <span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>Lifetime-Lizenz</span>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>System Restore integriert</span>
             <span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>Support im Discord</span>
-          </div>
-          <div class="pay-row fade" style="--i:5" aria-label="Zahlungsarten">
-            <span class="coin"><svg aria-hidden="true"><use href="#i-btc"/></svg>Bitcoin</span>
-            <span class="coin"><svg aria-hidden="true"><use href="#i-ltc"/></svg>Litecoin</span>
-            <span class="coin"><svg aria-hidden="true"><use href="#i-sol"/></svg>Solana</span>
-            <span class="coin"><svg aria-hidden="true"><use href="#i-paypal"/></svg>PayPal</span>
+            <span class="pay-icons" aria-label="Bezahlen mit PayPal, Bitcoin, Litecoin, Solana"><svg aria-hidden="true"><use href="#i-paypal"/></svg><svg aria-hidden="true"><use href="#i-btc"/></svg><svg aria-hidden="true"><use href="#i-ltc"/></svg><svg aria-hidden="true"><use href="#i-sol"/></svg></span>
           </div>
 
           <div class="stage fade" style="--i:6">
@@ -803,16 +796,8 @@
         </div>
       </div>
 
-      <!-- Laufband -->
-      <div class="ribbon" aria-hidden="true" style="margin-top:clamp(60px,8vw,96px)">
-        <div class="ribbon__track">
-          <span>Zero Delay</span><span>FPS Boost</span><span>Ping Optimizer</span><span>HitReg</span><span>Windows Tweaks</span><span>Game Tweaks</span><span>System Restore</span><span>AI Assistant</span>
-          <span>Zero Delay</span><span>FPS Boost</span><span>Ping Optimizer</span><span>HitReg</span><span>Windows Tweaks</span><span>Game Tweaks</span><span>System Restore</span><span>AI Assistant</span>
-        </div>
-      </div>
-
       <!-- Statement: leuchtet beim Scrollen Wort für Wort auf -->
-      <div class="statement">
+      <div class="statement" style="padding-top:clamp(120px,15vw,200px)">
         <div class="wrap"><p id="statement">Kein Ruckeln. Kein Delay. Kein Rätselraten. Nur du, dein Spiel und <span class="serif">jede Menge Frames.</span></p></div>
       </div>
 
@@ -1228,7 +1213,7 @@
           <h3>Schriftarten</h3>
           <p>Für die Darstellung der Schriften werden Google Fonts von Servern der Google Ireland Ltd. geladen. Dabei wird deine IP-Adresse an Google übermittelt (Art. 6 Abs. 1 lit. f DSGVO).</p>
           <h3>Lokale Speicherung</h3>
-          <p>Deine Auswahl für Hell/Dunkel und Animationen wird nur in deinem Browser gespeichert (localStorage). Es werden keine Tracking-Cookies verwendet.</p>
+          <p>Deine Auswahl für Hell/Dunkel wird nur in deinem Browser gespeichert (localStorage). Es werden keine Tracking-Cookies verwendet.</p>
           <h3>Deine Rechte</h3>
           <p>Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Beschwerde bei einer Aufsichtsbehörde. Kontakt: [E-Mail-Adresse]</p>
         </div>
@@ -1442,15 +1427,10 @@
     store.set('slix-theme', next);
     $('meta[name="theme-color"]').setAttribute('content', next === 'dark' ? '#09090b' : '#fbfbfa');
   });
-  const motionBtn = $('#motionBtn');
   function setMotion(on) {
     root.dataset.motion = on ? 'on' : 'off';
-    motionBtn.setAttribute('aria-pressed', on);
-    motionBtn.style.opacity = on ? 1 : .45;
-    store.set('slix-motion', on ? 'on' : 'off');
     onScroll();
   }
-  motionBtn.addEventListener('click', () => setMotion(!motionOn()));
 
   /* =====================================================================
      REVEAL + LICHT AUF KARTEN
@@ -2063,8 +2043,7 @@
   /* =====================================================================
      START
      ===================================================================== */
-  const savedMotion = store.get('slix-motion');
-  setMotion(savedMotion ? savedMotion === 'on' : !matchMedia('(prefers-reduced-motion: reduce)').matches);
+  setMotion(!matchMedia('(prefers-reduced-motion: reduce)').matches);
   $('#year').textContent = new Date().getFullYear();
   const back = new URLSearchParams(location.search);
   if (back.get('bestellung') && back.get('t')) history.replaceState(null, '', `${location.pathname}#/bestellung/${back.get('bestellung')}/${back.get('t')}`);
