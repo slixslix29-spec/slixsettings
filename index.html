@@ -1284,10 +1284,10 @@
   // Per Doppelklick geöffnet: direkt an den Bot.
   const ON_PAGES = location.hostname.endsWith('github.io');
   // GitHub Pages: Bot-Adresse kommt aus discord-data.js (Cloudflare Tunnel, vom Bot automatisch eingetragen)
-  const API_URL = ON_PAGES ? ((window.SLIX_DATA && window.SLIX_DATA.api) || '') : location.protocol === 'file:' ? 'http://127.0.0.1:8787' : '';
+  let API_URL = ON_PAGES ? ((window.SLIX_DATA && window.SLIX_DATA.api) || '') : location.protocol === 'file:' ? 'http://127.0.0.1:8787' : '';
   // Auf GitHub Pages gibt es keinen Server: Daten kommen aus discord-data.js (vom Bot aktuell gehalten),
   // statt des Formulars wird der Weg über ein Discord-Ticket angeboten.
-  const HAS_API = !ON_PAGES || !!API_URL;
+  let HAS_API = !ON_PAGES || !!API_URL;
   const FALLBACK_INVITE = 'https://discord.gg/slixsettings';
   const PAGE_SIZE = 24;
   const PRICES = { fully: 20, pc: 15, pack: 10, wasd: 10, hitreg: 5 };   // nur Anzeige – verbindlich sind die Preise im Bot
@@ -1592,10 +1592,20 @@
   let ckProduct = null;
   async function loadShop() {
     if (!HAS_API) return;
-    try { const r = await fetch(API_URL + '/api/shop', { cache: 'no-store' }); SHOP = await r.json(); } catch { SHOP = { enabled: false }; }
+    try { const r = await fetch(API_URL + '/api/shop', { cache: 'no-store' }); SHOP = await r.json(); } catch { SHOP = { enabled: false }; shopChecked = false; }
+  }
+  // Auf GitHub Pages: aktuelle Tunnel-Adresse frisch laden (Datei wird sonst bis zu 10 Min. zwischengespeichert)
+  async function refreshApiUrl() {
+    if (!ON_PAGES) return;
+    try {
+      const txt = await (await fetch('discord-data.js?t=' + Date.now(), { cache: 'no-store' })).text();
+      const m = txt.match(/"api":\s*"(https:\/\/[a-z0-9-]+\.trycloudflare\.com)"/);
+      if (m && m[1] !== API_URL) { API_URL = m[1]; HAS_API = true; shopChecked = false; }
+    } catch { /* offline – alte Adresse behalten */ }
   }
   let shopChecked = false;
   async function openCheckout(key) {
+    await refreshApiUrl();
     if (!shopChecked) { shopChecked = true; await loadShop(); }
     // Ohne Online-Zahlung (z. B. GitHub Pages oder Bot offline): direkt zum Discord
     if (!HAS_API || !SHOP.enabled) { window.open($('.js-invite').href, '_blank', 'noopener'); toast('Kauf läuft über ein Ticket in unserem Discord.'); return; }
@@ -1647,6 +1657,7 @@
   };
   async function loadOrder(id, token) {
     clearTimeout(orderTimer);
+    await refreshApiUrl();
     if (!id) { const last = store.get('slix-order'); if (last) { location.replace('#/bestellung/' + last); return; } }
     if (!id || !token || !HAS_API) { showOrderError('Keine Bestellung gefunden. Den Link zu deiner Bestellung bekommst du nach dem Kauf.'); return; }
     try {
@@ -2056,6 +2067,7 @@
   else if (!location.hash) history.replaceState(null, '', '#/start');
   if (store.get('slix-order')) $('#navOrder').classList.add('show');
   loadMe();
+  refreshApiUrl().then(() => { refreshLive(); });
   route();
   litStatement();
   renderAll();
