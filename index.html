@@ -636,6 +636,15 @@
   .info__for span { font: 500 12px var(--mono); padding: 5px 10px; border-radius: 100px; border: 1px solid var(--line-2); color: var(--text); }
   @media (max-width: 860px) { .info { grid-template-columns: 1fr; } .info__nav { position: static; grid-auto-flow: column; overflow-x: auto; scrollbar-width: none; } .info__nav button { white-space: nowrap; } .info__grid { grid-template-columns: 1fr; } }
 
+  /* Überschriften: Wörter steigen nacheinander auf */
+  .hw { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; margin-bottom: -.08em; }
+  .hw > span { display: inline-block; transform: translateY(105%); transition: transform calc(.9s * var(--speed)) var(--ease); transition-delay: calc(var(--w) * 60ms + 120ms); }
+  .is-in .hw > span, [data-motion="off"] .hw > span { transform: none; }
+  /* Screenshot schwebt sanft */
+  .shot-float { animation: floaty calc(7s * var(--speed)) ease-in-out infinite; }
+  @keyframes floaty { 50% { translate: 0 -8px; } }
+  [data-motion="off"] .shot-float { animation: none; }
+
   /* Klick-Welle auf Buttons */
   .ripple { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; background: currentColor; opacity: .25; transform: scale(0); animation: ripple calc(.6s * var(--speed)) var(--ease) forwards; }
   @keyframes ripple { to { transform: scale(1); opacity: 0; } }
@@ -771,11 +780,11 @@
             <span class="pay-icons" aria-label="Bezahlen mit PayPal, Bitcoin, Litecoin, Solana"><svg aria-hidden="true"><use href="#i-paypal"/></svg><svg aria-hidden="true"><use href="#i-btc"/></svg><svg aria-hidden="true"><use href="#i-ltc"/></svg><svg aria-hidden="true"><use href="#i-sol"/></svg></span>
           </div>
 
-          <div class="stage fade" style="--i:6">
+          <div class="stage fade shot-float" style="--i:6">
             <figure class="shot" id="shot">
               <div class="shot__bar" aria-hidden="true"><i></i><i></i><i></i><span>Slix Tweaks · Fully Tweak V2</span></div>
               <img src="bilder/fully-tweak-v2.png" alt="Oberfläche des Slix Fully Tweak V2 mit dem Bereich Zero Delay" width="1447" height="904">
-              <span class="shot__hint" aria-hidden="true">Hover für Farbe</span>
+              <span class="shot__hint" aria-hidden="true">Mit der Maus drüber für Farbe</span>
               <div class="shot__fade" aria-hidden="true"></div>
             </figure>
           </div>
@@ -857,7 +866,7 @@
           <div class="head head--center" data-reveal>
             <span class="label">Vorher / Nachher</span>
             <h2>Spür den <span class="serif">Unterschied.</span></h2>
-            <p>Zieh den Regler: Unruhige Frametimes ohne Tweak, gleichmäßige mit dem Fully Tweak V2.</p>
+            <p>Zieh den Regler: unruhige Frametimes ohne Tweak, gleichmäßige mit dem Fully Tweak V2.</p>
           </div>
           <div class="compare" id="compare" tabindex="0" role="slider" aria-label="Vorher/Nachher-Vergleich" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-reveal>
             <div class="compare__pane compare__pane--before">
@@ -1196,7 +1205,7 @@
           <h3>Verantwortlicher</h3>
           <p>[Name und Anschrift wie im Impressum]</p>
           <h3>Hosting</h3>
-          <p>Die Website wird über GitHub Pages (GitHub Inc., USA) ausgeliefert. Dabei werden technisch notwendige Daten wie IP-Adresse, Zeitpunkt und abgerufene Seite verarbeitet (Art. 6 Abs. 1 lit. f DSGVO).</p>
+          <p>Die Website wird über GitHub Pages (GitHub Inc., USA) ausgeliefert. Bestellungen, Login und Live-Daten laufen über Cloudflare (Cloudflare Inc., USA) zu unserem Server. Dabei werden technisch notwendige Daten wie IP-Adresse, Zeitpunkt und abgerufene Seite verarbeitet (Art. 6 Abs. 1 lit. f DSGVO).</p>
           <h3>Kontakt</h3>
           <p>Wenn du uns über Discord kontaktierst, gelten zusätzlich die Datenschutzbestimmungen von Discord Inc. Angaben aus einem Kontaktformular werden zur Bearbeitung deiner Anfrage an unseren Discord-Server übermittelt (Art. 6 Abs. 1 lit. a DSGVO).</p>
           <h3>Zahlungen</h3>
@@ -1552,7 +1561,26 @@
     once.observe(el);
   })();
 
-  // Balken für "Zero Delay" (rein dekorativ: Latenz sinkt)
+  // Überschriften der Bereiche Wort für Wort aufbauen
+  $$('.head h2, .cta h2').forEach((h) => {
+    h.setAttribute('aria-label', h.textContent.replace(/\s+/g, ' ').trim());
+    let i = 0;
+    const wrap = (node) => [...node.childNodes].forEach((n) => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach((w) => {
+          if (!w.trim()) return frag.append(w);
+          const o = document.createElement('span'); o.className = 'hw'; o.setAttribute('aria-hidden', 'true');
+          const inner = document.createElement('span'); inner.style.setProperty('--w', i++); inner.textContent = w;
+          o.append(inner); frag.append(o);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1 && !n.classList.contains('hw')) wrap(n);
+    });
+    wrap(h);
+  });
+
+  // Balken für "Zero Delay\" (rein dekorativ: Latenz sinkt)
   $('#latency').innerHTML = [72, 64, 80, 58, 66, 44, 36, 28, 22, 18, 16, 15, 14, 14].map((h, k) => `<i class="${k > 7 ? 'hot' : ''}" style="--h:${h}%;--k:${k}"></i>`).join('');
 
   /* =====================================================================
