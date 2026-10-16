@@ -22,6 +22,7 @@
       var t = localStorage.getItem('slix-theme') || 'dark';
       document.documentElement.dataset.theme = t === 'light' ? 'light' : 'dark';
       localStorage.removeItem('slix-motion');
+      if (localStorage.getItem('slix-calm') === '1') document.documentElement.dataset.motion = 'off';
     } catch (e) {}
   </script>
 
@@ -1227,7 +1228,7 @@
         <div><h4>Rechtliches</h4><ul><li><a href="#/impressum">Impressum</a></li><li><a href="#/datenschutz">Datenschutz</a></li></ul></div>
       </div>
       <p class="footer__word" aria-hidden="true">slixsettings</p>
-      <div class="footer__bottom"><span>© <span id="year">2026</span> slixsettings</span><span id="updated"></span></div>
+      <div class="footer__bottom"><span>© <span id="year">2026</span> slixsettings · <a href="#" id="motionToggle" style="text-decoration:underline">Animationen aus</a></span><span id="updated"></span></div>
     </div>
   </footer>
 
@@ -1281,10 +1282,12 @@
      ===================================================================== */
   // Vom Bot bzw. über die Domain (Cloudflare Tunnel) ausgeliefert: gleiche Adresse.
   // Per Doppelklick geöffnet: direkt an den Bot.
-  const API_URL = location.protocol === 'file:' ? 'http://127.0.0.1:8787' : '';
+  const ON_PAGES = location.hostname.endsWith('github.io');
+  // GitHub Pages: Bot-Adresse kommt aus discord-data.js (Cloudflare Tunnel, vom Bot automatisch eingetragen)
+  const API_URL = ON_PAGES ? ((window.SLIX_DATA && window.SLIX_DATA.api) || '') : location.protocol === 'file:' ? 'http://127.0.0.1:8787' : '';
   // Auf GitHub Pages gibt es keinen Server: Daten kommen aus discord-data.js (vom Bot aktuell gehalten),
   // statt des Formulars wird der Weg über ein Discord-Ticket angeboten.
-  const HAS_API = !location.hostname.endsWith('github.io');
+  const HAS_API = !ON_PAGES || !!API_URL;
   const FALLBACK_INVITE = 'https://discord.gg/slixsettings';
   const PAGE_SIZE = 24;
   const PRICES = { fully: 20, pc: 15, pack: 10, wasd: 10, hitreg: 5 };   // nur Anzeige – verbindlich sind die Preise im Bot
@@ -1812,6 +1815,7 @@
     return ME;
   }
   async function renderAccount() {
+    if (ON_PAGES && API_URL) { location.href = API_URL + '/#/konto'; return; }
     if (!HAS_API) {
       $('#loginText').textContent = 'Die Anmeldung ist auf unserer Hauptseite verfügbar.';
       return;
@@ -2037,7 +2041,15 @@
   /* =====================================================================
      START
      ===================================================================== */
-  setMotion(!matchMedia('(prefers-reduced-motion: reduce)').matches);
+  setMotion(store.get('slix-calm') !== '1');
+  $('#motionToggle').addEventListener('click', (e) => {
+    e.preventDefault();
+    const calm = motionOn();
+    store.set('slix-calm', calm ? '1' : '0');
+    setMotion(!calm);
+    $('#motionToggle').textContent = calm ? 'Animationen an' : 'Animationen aus';
+  });
+  $('#motionToggle').textContent = motionOn() ? 'Animationen aus' : 'Animationen an';
   $('#year').textContent = new Date().getFullYear();
   const back = new URLSearchParams(location.search);
   if (back.get('bestellung') && back.get('t')) history.replaceState(null, '', `${location.pathname}#/bestellung/${back.get('bestellung')}/${back.get('t')}`);
