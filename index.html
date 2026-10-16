@@ -7,12 +7,12 @@
   <meta name="description" content="slixsettings: Fully Tweak V2, PC Tweak V1, Tweak Pack, WASD V1 und HitReg V1. Weniger Input-Lag, mehr FPS, stabiler Ping. Echte Vouches aus unserem Discord.">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#09090b">
-  <link rel="canonical" href="https://slixslix29-spec.github.io/slixsettings.com/">
+  <link rel="canonical" href="https://slixslix29-spec.github.io/slixsettings/">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://slixslix29-spec.github.io/slixsettings.com/">
+  <meta property="og:url" content="https://slixslix29-spec.github.io/slixsettings/">
   <meta property="og:title" content="slixsettings — Tweaks für Windows & FiveM">
   <meta property="og:description" content="Fully Tweak V2 für 20€. Zero Delay, FPS Boost, Ping Optimizer, HitReg. Echte Vouches aus unserem Discord.">
-  <meta property="og:image" content="https://slixslix29-spec.github.io/slixsettings.com/bilder/fully-tweak-v2.png">
+  <meta property="og:image" content="https://slixslix29-spec.github.io/slixsettings/bilder/fully-tweak-v2.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%2309090b%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Arial%27 font-weight=%27800%27 font-size=%2718%27 text-anchor=%27middle%27 fill=%27%23fafafa%27%3Es%3C/text%3E%3C/svg%3E">
 
@@ -450,7 +450,7 @@
     animation: spin calc(5s * var(--speed)) linear infinite; }
   @keyframes spin { to { --ang: 360deg; } }
 
-  .ck-coins { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 8px 0 4px; }
+  .ck-coins { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0 4px; }
   @media (max-width: 520px) { .ck-coins { grid-template-columns: 1fr; } }
   .ck-coin { position: relative; display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid var(--line-2); border-radius: 14px; background: var(--bg-2); cursor: pointer; transition: border-color var(--t1), background-color var(--t1), transform var(--t1); }
   .ck-coin:hover { border-color: var(--line-3); }
@@ -721,6 +721,7 @@
     <symbol id="i-ltc" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="currentColor"/><path fill="var(--inv)" d="M10.4 23.2l1-3.7-1.9.7.5-1.8 1.9-.7 2.3-8.5h4l-1.8 6.6 2-.7-.5 1.9-2 .7-.9 3.3h7.3l-.7 2.2z"/></symbol>
     <symbol id="i-sol" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="currentColor"/><path fill="var(--inv)" d="M10.2 20.1a.6.6 0 0 1 .4-.2h12.2c.3 0 .4.3.2.5l-2.4 2.4a.6.6 0 0 1-.4.2H8c-.3 0-.4-.3-.2-.5zm0-8.9a.6.6 0 0 1 .4-.2h12.2c.3 0 .4.3.2.5l-2.4 2.4a.6.6 0 0 1-.4.2H8c-.3 0-.4-.3-.2-.5zm11.6 4.4a.6.6 0 0 0-.4-.2H9.2c-.3 0-.4.3-.2.5l2.4 2.4c.1.1.3.2.4.2h12.2c.3 0 .4-.3.2-.5z"/></symbol>
     <symbol id="i-google" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h5.9a5 5 0 0 1-2.2 3.3v2.7h3.5c2.1-1.9 3.3-4.8 3.3-8.1z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.5-2.7c-1 .7-2.3 1.1-3.8 1.1-2.9 0-5.4-2-6.3-4.6H2.1v2.8A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.7 14.1a6.6 6.6 0 0 1 0-4.2V7.1H2.1a11 11 0 0 0 0 9.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.1-3.1A11 11 0 0 0 2.1 7.1l3.6 2.8C6.6 7.4 9.1 5.4 12 5.4z"/></symbol>
+    <symbol id="i-paypal" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="currentColor"/><text x="16.5" y="22.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" font-style="italic" fill="var(--inv)">P</text></symbol>
     <symbol id="i-discord" viewBox="0 0 24 24"><path d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18 18 0 0 0-5.5 0L8.6 3a19.6 19.6 0 0 0-4.9 1.5C.6 9.1-.3 13.7.1 18.2a19.8 19.8 0 0 0 6 3l1.3-2.1a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 12.1 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.7 19.7 0 0 0 6-3c.5-5.2-.8-9.8-3.5-13.8zM8 15.5c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.7 8 10.7s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></symbol>
   </svg>
 
@@ -779,6 +780,7 @@
             <span class="coin"><svg aria-hidden="true"><use href="#i-btc"/></svg>Bitcoin</span>
             <span class="coin"><svg aria-hidden="true"><use href="#i-ltc"/></svg>Litecoin</span>
             <span class="coin"><svg aria-hidden="true"><use href="#i-sol"/></svg>Solana</span>
+            <span class="coin"><svg aria-hidden="true"><use href="#i-paypal"/></svg>PayPal</span>
           </div>
 
           <div class="stage fade" style="--i:6">
@@ -913,8 +915,8 @@
             <h2>In drei Schritten startklar.</h2>
           </div>
           <div class="steps">
-            <div class="card step" data-reveal><span class="step__n">01</span><h3>Produkt wählen</h3><p>Klick auf „Kaufen“, wähle Bitcoin, Litecoin oder Solana und gib deinen Discord-Namen an.</p></div>
-            <div class="card step" data-reveal><span class="step__n">02</span><h3>Bezahlen</h3><p>Scanne den QR-Code oder kopiere Adresse und Betrag. Die Zahlung wird automatisch erkannt, danach liefern wir im Discord aus.</p></div>
+            <div class="card step" data-reveal><span class="step__n">01</span><h3>Produkt wählen</h3><p>Klick auf „Kaufen“, wähle PayPal, Bitcoin, Litecoin oder Solana und gib deinen Discord-Namen an.</p></div>
+            <div class="card step" data-reveal><span class="step__n">02</span><h3>Bezahlen</h3><p>Mit PayPal oder Krypto – die Zahlung wird automatisch erkannt, danach liefern wir im Discord aus.</p></div>
             <div class="card step" data-reveal><span class="step__n">03</span><h3>Loslegen &amp; Vouch</h3><p>Restore setzen, Tweaks anwenden, fertig. Danach kannst du auf deiner Bestellseite einen Vouch abgeben.</p></div>
           </div>
         </div>
@@ -930,7 +932,7 @@
           </div>
           <div class="acc" data-reveal>
             <div class="acc__item"><button class="acc__btn" aria-expanded="false">Wie läuft ein Kauf ab?<span class="acc__icon" aria-hidden="true"></span></button>
-              <div class="acc__panel"><div><p>Du klickst auf „Kaufen“, wählst Bitcoin, Litecoin oder Solana und zahlst den angezeigten Betrag an unsere Wallet. Die Zahlung wird automatisch erkannt. Sobald die Zahlung bestätigt ist, liefert unser Team im Discord aus. Alternativ kannst du auch per Ticket in unserem Discord kaufen.</p></div></div></div>
+              <div class="acc__panel"><div><p>Du klickst auf „Kaufen“, wählst PayPal, Bitcoin, Litecoin oder Solana und bezahlst. Die Zahlung wird automatisch erkannt. Sobald die Zahlung bestätigt ist, liefert unser Team im Discord aus. Alternativ kannst du auch per Ticket in unserem Discord kaufen.</p></div></div></div>
             <div class="acc__item"><button class="acc__btn" aria-expanded="false">Kann ich alles rückgängig machen?<span class="acc__icon" aria-hidden="true"></span></button>
               <div class="acc__panel"><div><p>Ja. Über System Restore setzt du vorher einen Wiederherstellungspunkt und kommst jederzeit zum Ausgangszustand zurück.</p></div></div></div>
             <div class="acc__item"><button class="acc__btn" aria-expanded="false">Welche Windows-Versionen werden unterstützt?<span class="acc__icon" aria-hidden="true"></span></button>
@@ -938,7 +940,7 @@
             <div class="acc__item"><button class="acc__btn" aria-expanded="false">Wie viel FPS bringt das?<span class="acc__icon" aria-hidden="true"></span></button>
               <div class="acc__panel"><div><p>Das hängt von deiner Hardware ab. Ältere Systeme profitieren meist stärker, bei neueren geht es vor allem um gleichmäßigere Frametimes und weniger Input-Lag.</p></div></div></div>
             <div class="acc__item"><button class="acc__btn" aria-expanded="false">Welche Zahlungsmethoden gibt es?<span class="acc__icon" aria-hidden="true"></span></button>
-              <div class="acc__panel"><div><p>Direkt auf der Website: Bitcoin (BTC), Litecoin (LTC) und Solana (SOL). Weitere Zahlungsmethoden findest du im Ticket in unserem Discord.</p></div></div></div>
+              <div class="acc__panel"><div><p>Direkt auf der Website: PayPal, Bitcoin (BTC), Litecoin (LTC) und Solana (SOL). Weitere Zahlungsmethoden findest du im Ticket in unserem Discord.</p></div></div></div>
             <div class="acc__item"><button class="acc__btn" aria-expanded="false">Wo bekomme ich Hilfe?<span class="acc__icon" aria-hidden="true"></span></button>
               <div class="acc__panel"><div><p>Öffne ein Support-Ticket in unserem Discord. Unser Team hilft dir dort persönlich weiter.</p></div></div></div>
           </div>
@@ -950,7 +952,7 @@
         <div class="card cta" data-reveal>
           <span class="label">Bereit?</span>
           <h2>Hol dir den Fully Tweak <span class="serif">V2.</span></h2>
-          <p>20€ einmalig, Lifetime. Bezahle mit Bitcoin, Litecoin oder Solana – Support läuft über unseren Discord.</p>
+          <p>20€ einmalig, Lifetime. Bezahle mit PayPal oder Krypto – Support läuft über unseren Discord.</p>
           <div class="hero__cta" style="margin-top:0">
             <button class="btn btn--ink magnet" data-buy="fully">Jetzt kaufen · 20€ <span class="arr" aria-hidden="true">→</span></button>
             <a href="#" class="btn btn--line js-invite" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-discord"/></svg> Discord beitreten</a>
@@ -967,7 +969,7 @@
           <div class="head" data-reveal>
             <span class="label">Produkte</span>
             <h2>Einmal zahlen. <span class="serif">Für immer</span> nutzen.</h2>
-            <p>Alle Produkte mit Lifetime-Lizenz. Bezahle direkt hier mit Bitcoin, Litecoin oder Solana – oder per Ticket in unserem Discord.</p>
+            <p>Alle Produkte mit Lifetime-Lizenz. Bezahle direkt hier mit PayPal, Bitcoin, Litecoin oder Solana – oder per Ticket in unserem Discord.</p>
           </div>
           <div class="pricing">
             <article class="card plan plan--hero beam tilt" data-reveal>
@@ -1001,12 +1003,12 @@
               </button>
               <button class="item" data-product="wasd">
                 <h4>WASD <small>V1</small></h4>
-                <p>Tastatur-Einstellungen für direkteres Movement.</p>
+                <p>MMCSS-Scheduler, 1-ms-Tastatur-Latenz, kein Core-Parking.</p>
                 <span class="item__price">10€<i aria-hidden="true">→</i></span>
               </button>
               <button class="item" data-product="hitreg">
                 <h4>HitReg <small>V1</small></h4>
-                <p>Netzwerk- und Eingabe-Tweaks für bessere Hitreg.</p>
+                <p>16 TCP-, Kernel- und Sub-Tick-Tweaks per 1-Klick.</p>
                 <span class="item__price">5€<i aria-hidden="true">→</i></span>
               </button>
             </div>
@@ -1218,7 +1220,7 @@
           <h3>Kontakt</h3>
           <p>Wenn du uns über Discord kontaktierst, gelten zusätzlich die Datenschutzbestimmungen von Discord Inc. Angaben aus einem Kontaktformular werden zur Bearbeitung deiner Anfrage an unseren Discord-Server übermittelt (Art. 6 Abs. 1 lit. a DSGVO).</p>
           <h3>Zahlungen</h3>
-          <p>Zahlungen mit Bitcoin, Litecoin und Solana gehen direkt an unsere Wallet-Adressen. Zur Zuordnung prüfen wir öffentliche Blockchain-Daten (mempool.space, BlockCypher, Solana RPC); Kurse stammen von CoinGecko. Wir verarbeiten Bestellnummer, Produkt, Betrag, Transaktions-ID und den von dir angegebenen Discord-Namen, um die Bestellung auszuliefern (Art. 6 Abs. 1 lit. b DSGVO).</p>
+          <p>Zahlungen mit PayPal werden von PayPal (Europe) S.à r.l. et Cie, S.C.A. abgewickelt; PayPal übermittelt uns Bestellnummer, Betrag und Transaktions-ID. Zahlungen mit Bitcoin, Litecoin und Solana gehen direkt an unsere Wallet-Adressen. Zur Zuordnung prüfen wir öffentliche Blockchain-Daten (mempool.space, BlockCypher, Solana RPC); Kurse stammen von CoinGecko. Wir verarbeiten Bestellnummer, Produkt, Betrag, Transaktions-ID und den von dir angegebenen Discord-Namen, um die Bestellung auszuliefern (Art. 6 Abs. 1 lit. b DSGVO).</p>
           <h3>Konto &amp; Login</h3>
           <p>Wenn du dich mit Discord oder Google anmeldest, erhalten wir von dort deinen Anzeigenamen, deine Nutzer-ID und dein Profilbild, um deine Käufe deinem Konto zuzuordnen. Die Anmeldung wird in einem Cookie (30 Tage) gespeichert (Art. 6 Abs. 1 lit. b DSGVO).</p>
           <h3>Vouches</h3>
@@ -1279,11 +1281,12 @@
             <label class="ck-coin"><input type="radio" name="currency" value="ltc" checked><svg aria-hidden="true"><use href="#i-ltc"/></svg><span><b>Litecoin</b><small>LTC</small></span></label>
             <label class="ck-coin"><input type="radio" name="currency" value="sol"><svg aria-hidden="true"><use href="#i-sol"/></svg><span><b>Solana</b><small>SOL</small></span></label>
             <label class="ck-coin"><input type="radio" name="currency" value="btc"><svg aria-hidden="true"><use href="#i-btc"/></svg><span><b>Bitcoin</b><small>BTC</small></span></label>
+            <label class="ck-coin"><input type="radio" name="currency" value="paypal"><svg aria-hidden="true"><use href="#i-paypal"/></svg><span><b>PayPal</b><small>mit Käuferschutz</small></span></label>
           </div>
         </div>
         <div class="field"><label for="ckDiscord">Dein Discord-Name</label><input id="ckDiscord" name="discord" maxlength="40" required placeholder="z. B. slixfan" autocomplete="nickname"><span class="ck-note">Damit wir dir nach der Zahlung im Discord ausliefern können.</span></div>
         <div class="ck-sum"><span class="muted">Gesamt</span><b id="ckPrice">–</b></div>
-        <label class="check"><input type="checkbox" id="ckOk"> <span>Ich habe die <a href="#/datenschutz">Datenschutzhinweise</a> gelesen. Du zahlst direkt an unsere Wallet, die Zahlung wird automatisch erkannt.</span></label>
+        <label class="check"><input type="checkbox" id="ckOk"> <span>Ich habe die <a href="#/datenschutz">Datenschutzhinweise</a> gelesen. Die Zahlung wird automatisch erkannt.</span></label>
         <p class="ck-err" id="ckErr" role="status"></p>
         <button class="btn btn--ink" type="submit" id="ckSubmit" style="width:100%">Weiter zur Zahlung <span class="arr" aria-hidden="true">→</span></button>
         <a href="#" class="btn btn--line js-invite" target="_blank" rel="noopener" style="width:100%"><svg aria-hidden="true"><use href="#i-discord"/></svg> Lieber per Discord-Ticket kaufen</a>
@@ -1314,8 +1317,12 @@
               list: ['Zero Delay – weniger Input-Lag für Maus, Tastatur und Controller', 'FPS Boost', 'Ping Optimizer', 'HitReg Tweak', 'Windows- und Game-Tweaks', 'System Restore – jederzeit zurück zum Ausgangszustand', 'Integrierter AI Assistant, Guide und Support'] },
     pc:     { tag: '#slix-pc-tweak', name: 'Slix PC Tweak V1', price: '15€', text: 'Systemoptimierung für Windows 10 und 11.', list: ['Energieplan', 'Dienste & Autostart', 'GPU-Treiber-Einstellungen'] },
     pack:   { tag: '#tweakpack-v1', name: 'Slix Tweak Pack', price: '10€', text: 'Ausgewählte Einzel-Tweaks für den schnellen Einstieg – ideal, wenn du erst einmal reinschnuppern möchtest.', list: [] },
-    wasd:   { tag: '#wasd-v1', name: 'WASD V1', price: '10€', text: 'Tastatur-Einstellungen für direkteres Movement.', list: [] },
-    hitreg: { tag: '#hitreg-v1', name: 'HitReg V1', price: '5€', text: 'Netzwerk- und Eingabe-Tweaks rund um die Trefferregistrierung.', list: [] },
+    wasd:   { tag: '#wasd-v1', name: 'WASD V1', price: '10€', img: 'bilder/wasd-v1.png',
+              text: 'Core WASD & Gaming Engine: maximale Tasten-Reaktion und niedrige Latenz – mit einem Klick angewendet. Deine Maus und DPI bleiben unverändert.',
+              list: ['MMCSS Gaming-Scheduler: 10 ms Takt & GPU-Priorität 8', 'Tastatur-Latenz: Wiederholrate 31 mit 1 ms Ansprechverzögerung', 'FilterKeys, StickyKeys & Signalton-Delays aus', 'Netzwerkdrosselung & SystemResponsiveness auf 0 %', 'GPU PreRenderedFrames = 0 (minimaler Render-Ahead-Lag)', 'CPU Core-Parking aus – kein Kern schläft im Match ein', 'Windows-QoS-Bandbreitenreservierung aufgehoben', 'GameDVR & Hintergrundaufzeichnung deaktiviert'] },
+    hitreg: { tag: '#hitreg-v1', name: 'HitReg V1', price: '5€', img: 'bilder/hitreg-v1.png',
+              text: 'Master-Hitreg-Synchronisation: 16 TCP-, Kernel- und Sub-Tick-Tweaks für sauberere Trefferregistrierung – mit einem Klick angewendet und jederzeit zurücksetzbar.',
+              list: ['Zwei Modi: Hitbox Precision Sync & Sub-Tick & TCP Pipeline', 'TCPNoDelay – Nagle-Algorithmus aus, Schüsse werden sofort gesendet', 'TcpAckFrequency = 1 – Bestätigungen ohne Wartezeit', '16 TCP-, Kernel- und Sub-Tick-Tweaks per 1-Klick', 'Zurücksetzen-Funktion integriert'] },
   };
 
   // Info-Boxen: Was macht der Tweak genau? (Texte hier anpassen)
@@ -1324,6 +1331,10 @@
       text: 'Sorgt dafür, dass deine Eingaben ohne Umwege beim Spiel ankommen. Getrennte Profile für Maus & Tastatur und für Controller.',
       items: [['Mausbeschleunigung aus', 'Rohe Mausbewegung – gleiche Bewegung, gleicher Weg im Spiel.'], ['USB-Polling optimiert', 'Eingabegeräte werden häufiger abgefragt, Eingaben kommen schneller an.'], ['Tastaturpuffer geleert', 'Weniger Verzögerung zwischen Tastendruck und Reaktion.'], ['Controller-Profil', 'Eigene Einstellungen für Gamepads.']],
       for: ['Shooter', 'FiveM', 'Competitive'] },
+    { key: 'wasd', name: 'WASD Engine', short: 'Tastatur & Scheduler',
+      text: 'Das Herz des WASD V1: Tastatur, Windows-Scheduler und Netzwerk werden auf minimale Latenz gestellt – die Maus bleibt dabei komplett unberührt.',
+      items: [['MMCSS Gaming-Scheduler', '10 ms Taktfrequenz & GPU-Priorität 8 für Spiele.'], ['Tastatur-Latenz', 'Wiederholrate 31 mit 1 ms Ansprechverzögerung.'], ['Barrierefreiheit aus', 'FilterKeys, StickyKeys & Signalton-Delays deaktiviert.'], ['Kein Core-Parking', 'Alle CPU-Kerne bleiben im Match wach.']],
+      for: ['Movement', 'Shooter', 'FiveM'] },
     { key: 'fps', name: 'FPS Boost', short: 'Mehr & ruhigere Frames',
       text: 'Räumt auf, was im Hintergrund Leistung frisst, und stellt Windows auf Spiele-Leistung ein. Ziel sind nicht nur mehr FPS, sondern gleichmäßigere Frametimes.',
       items: [['Leistungs-Energieplan', 'CPU taktet im Spiel nicht unnötig herunter.'], ['Hintergrundlast reduziert', 'Unnötige Dienste und Autostarts bremsen nicht mehr.'], ['Grafik-Einstellungen', 'Windows-Grafikoptionen auf Leistung gestellt.'], ['Ruhigere Frametimes', 'Weniger Ruckler und Mikro-Stotterer.']],
@@ -1333,8 +1344,8 @@
       items: [['Netzwerkadapter optimiert', 'Energiesparfunktionen, die Verbindungen bremsen, werden abgeschaltet.'], ['Weniger Ping-Spitzen', 'Gleichmäßigere Verbindung in Online-Spielen.'], ['Hintergrund-Traffic', 'Weniger Störungen durch Windows im Hintergrund.']],
       for: ['Online-Games', 'FiveM-Server'] },
     { key: 'hitreg', name: 'HitReg Tweak', short: 'Bessere Trefferregistrierung',
-      text: 'Kombiniert Netzwerk- und Eingabe-Optimierungen, damit deine Treffer sauberer beim Server ankommen.',
-      items: [['Netzwerk-Timing', 'Daten werden zügiger an den Server übertragen.'], ['Eingabe-Timing', 'Schüsse werden ohne zusätzliche Verzögerung registriert.']],
+      text: '16 TCP-, Kernel- und Sub-Tick-Tweaks, damit deine Schüsse ohne Sammelverzögerung beim Server ankommen. Wählbar als „Hitbox Precision Sync“ oder „Sub-Tick & TCP Pipeline“.',
+      items: [['TCPNoDelay', 'Nagle-Algorithmus aus – Schüsse werden sofort gesendet statt gesammelt.'], ['TcpAckFrequency = 1', 'Jede Bestätigung geht direkt raus, ohne Wartezeit.'], ['Sub-Tick-Optimierung', 'Netzwerk-Pipeline auf schnelle Übertragung ausgelegt.'], ['1-Klick & Zurücksetzen', 'Alles auf einmal anwenden – und jederzeit rückgängig machen.']],
       for: ['Shooter', 'FiveM PvP'] },
     { key: 'win', name: 'Windows & Game Tweaks', short: 'System & Spiele',
       text: 'Eine Sammlung von System- und spielspezifischen Einstellungen, die Windows schlanker und Spiele reaktionsschneller machen.',
@@ -1637,7 +1648,8 @@
       store.set('slix-order', `${d.order_id}/${d.token}`);
       checkout.close();
       btn.disabled = false; ckErr.textContent = '';
-      if (d.invoice_url) location.href = d.invoice_url;   // (falls Anbieter genutzt wird)
+      if (d.paypal_url) location.href = d.paypal_url;      // weiter zu PayPal
+      else if (d.invoice_url) location.href = d.invoice_url;
       else location.hash = `#/bestellung/${d.order_id}/${d.token}`;
     } catch (err) {
       ckErr.textContent = err instanceof TypeError ? 'Server gerade nicht erreichbar – bitte kauf per Discord-Ticket.' : err.message;
@@ -1648,8 +1660,8 @@
   // Bestellseite
   let orderTimer = null, currentOrder = null, pickedStars = 5;
   const STATUS = {
-    waiting:    { t: 'Jetzt bezahlen', s: 'Sende den exakten Betrag an die Adresse unten. Die Seite aktualisiert sich automatisch.', step: 1 },
-    confirming: { t: 'Zahlung erkannt', s: 'Deine Zahlung ist da und wird im Netzwerk bestätigt. Das dauert meist wenige Minuten.', step: 2 },
+    waiting:    { t: 'Jetzt bezahlen', s: 'Schließe die Zahlung ab – diese Seite aktualisiert sich automatisch.', step: 1 },
+    confirming: { t: 'Zahlung erkannt', s: 'Deine Zahlung ist da und wird noch bestätigt. Das dauert meist nur wenige Minuten.', step: 2 },
     partial:    { t: 'Teilzahlung erhalten', s: 'Es ist weniger angekommen als nötig. Bitte melde dich mit deiner Bestellnummer im Discord.', step: 2 },
     paid:       { t: 'Bezahlt – danke!', s: 'Unser Team liefert dir dein Produkt im Discord aus. Halte deine Direktnachrichten offen.', step: 3 },
     expired:    { t: 'Zahlung abgelaufen', s: 'Die Zahlungszeit ist abgelaufen. Du kannst einfach eine neue Bestellung starten.', step: 0 },
@@ -1690,6 +1702,7 @@
     $$('#oSteps li').forEach((li, i) => { li.className = i < st.step ? 'done' : (i === st.step && st.step > 0 && st.step < 3 ? 'active' : ''); });
     const act = [];
     renderPayBox(o);
+    if (o.status === 'waiting' && o.paypal_url) act.push(`<a href="${esc(o.paypal_url)}" class="btn btn--ink">Mit PayPal bezahlen <span class="arr" aria-hidden="true">→</span></a>`);
     if (['waiting', 'confirming'].includes(o.status) && o.invoice_url) act.push(`<a href="${esc(o.invoice_url)}" class="btn btn--ink">Zur Zahlungsseite <span class="arr" aria-hidden="true">→</span></a>`);
     if (['expired', 'failed'].includes(o.status)) act.push('<a href="#/produkte" class="btn btn--ink">Neu bestellen</a>');
     act.push(`<a href="${esc($('.js-invite').href)}" class="btn btn--line" target="_blank" rel="noopener">Discord öffnen</a>`);
@@ -2053,7 +2066,9 @@
   const savedMotion = store.get('slix-motion');
   setMotion(savedMotion ? savedMotion === 'on' : !matchMedia('(prefers-reduced-motion: reduce)').matches);
   $('#year').textContent = new Date().getFullYear();
-  if (!location.hash) history.replaceState(null, '', '#/start');
+  const back = new URLSearchParams(location.search);
+  if (back.get('bestellung') && back.get('t')) history.replaceState(null, '', `${location.pathname}#/bestellung/${back.get('bestellung')}/${back.get('t')}`);
+  else if (!location.hash) history.replaceState(null, '', '#/start');
   if (store.get('slix-order')) $('#navOrder').classList.add('show');
   loadMe();
   route();
