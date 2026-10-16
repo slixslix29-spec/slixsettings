@@ -644,6 +644,8 @@
   .shot-float { animation: floaty calc(7s * var(--speed)) ease-in-out infinite; }
   @keyframes floaty { 50% { translate: 0 -8px; } }
   [data-motion="off"] .shot-float { animation: none; }
+  /* Sicherheitsnetz: nach dem Laden ist alles sichtbar, auch wenn eine Animation nicht anspringt */
+  .settled .fade, .settled .hero h1 .w { opacity: 1 !important; transform: none !important; filter: none !important; }
 
   /* Klick-Welle auf Buttons */
   .ripple { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; background: currentColor; opacity: .25; transform: scale(0); animation: ripple calc(.6s * var(--speed)) var(--ease) forwards; }
@@ -2095,6 +2097,7 @@
   else if (!location.hash) history.replaceState(null, '', '#/start');
   if (store.get('slix-order')) $('#navOrder').classList.add('show');
   loadMe();
+  setTimeout(() => root.classList.add('settled'), 3000);
   refreshApiUrl().then(() => { refreshLive(); });
   route();
   litStatement();
