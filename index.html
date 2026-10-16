@@ -21,7 +21,7 @@
     try {
       var t = localStorage.getItem('slix-theme') || 'dark';
       document.documentElement.dataset.theme = t === 'light' ? 'light' : 'dark';
-      if (localStorage.getItem('slix-motion') === 'off') document.documentElement.dataset.motion = 'off';
+      localStorage.removeItem('slix-motion');
     } catch (e) {}
   </script>
 
@@ -516,12 +516,6 @@
   .shine { background: linear-gradient(100deg, var(--mute) 20%, var(--ink) 40%, var(--mute) 60%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent !important; animation: shine calc(6s * var(--speed)) linear infinite; }
   @keyframes shine { from { background-position: 125% 0; } to { background-position: -125% 0; } }
 
-  /* Laufband mit Produktnamen */
-  .ribbon { border-block: 1px solid var(--line); padding: 20px 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
-  .ribbon__track { display: flex; gap: 48px; width: max-content; animation: slide calc(40s * var(--speed)) linear infinite; }
-  .ribbon__track span { display: inline-flex; align-items: center; gap: 48px; font-size: clamp(22px, 2.6vw, 34px); font-weight: 600; letter-spacing: -.035em; color: var(--mute); white-space: nowrap; }
-  .ribbon__track span::after { content: "✦"; font-size: .5em; color: var(--line-3); }
-  .ribbon__track span:nth-child(odd) { color: var(--ink); }
 
   /* Statement: Wörter leuchten beim Scrollen nacheinander auf */
   .statement { padding: clamp(100px, 14vw, 180px) 0; }
@@ -677,7 +671,7 @@
   }
   @media (max-width: 820px) {
     .burger { display: grid; }
-    #motionBtn, .header .btn--sm { display: none; }
+    .header .btn--sm { display: none; }
     .acct-btn span:last-child { display: none; }
     .acct-btn, .acct-btn.guest { padding: 0 4px; }
     .acct-btn.guest .av0 { display: grid; }
